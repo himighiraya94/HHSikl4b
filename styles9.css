@@ -1,0 +1,220 @@
+/* styles9.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --primary-navy: #ffffff;
+    --accent-blue: #38bdf8;
+    --bg-light: #0f172a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-light);
+    background-image: url('WEB_BG.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Typography Rules --- */
+
+h2, h3, 
+.main-title,
+.mv-card h2, 
+.purpose-card h2, 
+.cv-title, 
+.purpose-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.portal-header .main-title {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+}
+
+.portal-header .title-light {
+    font-weight: 200;
+}
+
+.portal-header .title-bold {
+    font-weight: 900;
+}
+
+.portal-header p,
+.mv-card p,
+.purpose-list li,
+.cv-box p,
+.purpose-box p {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.portal-header p {
+    font-size: 1.35rem !important;
+    font-style: normal;
+}
+
+.portal-header p i,
+.portal-header p em {
+    font-style: italic;
+}
+
+/* --- Navigation Bar Layout --- */
+.navbar {
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Main Structure & Layout Container --- */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+/* --- Section Layouts --- */
+.portal-header {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+}
+
+.mission-vision-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.cards-wrapper {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* --- Grid Layouts --- */
+.purpose-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.core-values-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+/* --- Events Section Grid & Framing --- */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Sets frame to a 1:1 square ratio matching poster dimensions */
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Scale image down to show full poster including header & footer text */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.event-frame:hover .event-image {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .core-values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .purpose-grid,
+    .core-values-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .cards-wrapper {
+        flex-direction: column;
+    }
+}

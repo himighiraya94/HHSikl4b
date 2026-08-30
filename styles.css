@@ -1,0 +1,441 @@
+:root {
+    --primary-navy: #ffffff;
+    --accent-blue: #ffffff;
+    --text-dark: #ffffff;
+    --text-muted: #ffffff;
+    --bg-light: #0f172a; /* Dark background so white text remains readable */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+}
+
+
+
+body {
+    background-image: url('WEB_BG.png'); /* Replace with your image path or URL */
+    background-size: cover;                  /* Stretches image to cover full window */
+    background-position: center center;      /* Centers the image */
+    background-repeat: no-repeat;            /* Prevents image tiling */
+    background-attachment: fixed;
+}
+
+/* Ambient Gradient Accent (Bottom Left) */
+.ambient-glow {
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(147, 197, 253, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hero / Header Title Section */
+.portal-header {
+    max-width: 650px;
+}
+
+.portal-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    color: var(--primary-navy);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.portal-header p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--accent-blue);
+}
+
+/* Branding / Bottom Section */
+.branding-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 6rem;
+}
+
+/* Left Branding Content */
+brand-info {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem; /* Controls exact vertical gap between logo, text, and contact */
+}
+
+.brand-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.music-icon {
+    font-size: 2rem;
+    color: var(--accent-blue);
+}
+
+.brand-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.25rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+    line-height: 1;
+}
+
+.brand-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2;
+}
+
+/* Contact Details */
+.contact-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #ffffff;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.contact-line::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background-color: var(--accent-blue);
+}
+
+.contact-line a {
+    color: var(--primary-navy);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contact-line a:hover {
+    text-decoration: underline;
+}
+
+/* Right Watermark & Socials */
+.watermark-social-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+/* Typography Watermark */
+.watermark-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 0.9;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #cbd5e1;
+    text-transform: uppercase;
+    user-select: none;
+    margin-bottom: 1.5rem;
+    text-align: right;
+}
+
+
+/* Social Links Bar */
+.social-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgb(52, 134, 240);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-icon-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-navy);
+    color: rgb(52, 134, 240);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icon-btn:hover {
+    background-color: var(--accent-blue);
+    transform: translateY(-2px);
+}
+
+.social-handle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-left: 0.25rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+    .portal-header h1 {
+        font-size: 2.5rem;
+    }
+}
+    .branding-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .watermark-social-wrapper {
+        align-items: flex-start;
+    }
+
+    .watermark-text {
+        font-size: 3.5rem;
+        text-align: left;
+    }
+
+    .brand-title {
+        font-size: 3rem;
+    }
+
+    /* --- Navigation Bar Styles --- */
+.navbar {
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo-img {
+    height: 35px; /* Adjust height as needed */
+    width: auto;
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* Hide menu options cleanly on small mobile screens */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+}
+    .hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.portal-header {
+    flex: 1;
+    max-width: 600px;
+}
+
+.attendance-card {
+    margin-left: auto; /* Pushes element all the way to the right edge */
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.attendance-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.attendance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus {
+    border-color: #ffffff;
+}
+
+/* Custom Radio Buttons for Present / Absent */
+.status-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.radio-option {
+    flex: 1;
+    cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+    display: none;
+}
+
+.radio-btn {
+    display: block;
+    text-align: center;
+    padding: 0.6rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked + .radio-btn {
+    background-color: #ffffff;
+    color: #0f172a;
+}
+
+/* Submit Button */
+.submit-btn {
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    color: #0f172a;
+    border: none;
+    padding: 0.85rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submit-btn:hover {
+    background-color: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .attendance-card {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+}
