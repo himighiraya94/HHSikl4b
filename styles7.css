@@ -81,7 +81,7 @@ h2, h3,
     width: 100%;
     background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -182,7 +182,7 @@ h2, h3,
 
 .dropdown-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    color: var(--accent-blue);
 }
 
 /* --- Main Structure & Layout Container --- */
@@ -328,7 +328,8 @@ h2, h3,
         padding-left: 1rem;
     }
 
-    .dropdown:hover .dropdown-menu {
+    .dropdown:hover .dropdown-menu,
+    .dropdown.open .dropdown-menu {
         display: block;
     }
 

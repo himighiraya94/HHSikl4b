@@ -2,7 +2,7 @@
 
 :root {
     --primary-navy: #ffffff;
-    --accent-blue: #ffffff;
+    --accent-blue: #38bdf8;
     --bg-light: #0f172a;
 }
 
@@ -34,7 +34,7 @@ body {
     width: 100%;
     background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -135,7 +135,7 @@ body {
 
 .dropdown-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    color: var(--accent-blue);
 }
 
 /* --- Main Container & Layout --- */
@@ -292,7 +292,7 @@ body {
     border-radius: 2px;
 }
 
-/* --- Grid Layouts --- */
+/* --- Grid Layouts & Interactive Hover Behavior --- */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -313,18 +313,22 @@ body {
     width: 100%;
     max-width: 360px;
     justify-self: center;
-    background: transparent;
-    border: 2px solid #ffffff;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
     border-radius: 16px;
     padding: 0;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.35s ease, 
+                box-shadow 0.35s ease;
 }
 
 .member-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+    transform: translateY(-8px);
+    border-color: var(--accent-blue);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
 .member-card:first-child,
@@ -351,6 +355,11 @@ body {
     top: 0;
     left: 0;
     z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.member-card:hover .member-photo {
+    transform: scale(1.05);
 }
 
 .member-badge {
@@ -359,16 +368,22 @@ body {
     left: 12px;
     right: 12px;
     z-index: 2;
-    background: rgba(15, 23, 42, 0.92);
+    background: rgba(15, 23, 42, 0.88);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 2px solid #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding: 0.75rem 0.9rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
+    transition: border-color 0.35s ease, background 0.35s ease;
+}
+
+.member-card:hover .member-badge {
+    border-color: rgba(56, 189, 248, 0.6);
+    background: rgba(15, 23, 42, 0.95);
 }
 
 .member-details {
@@ -407,19 +422,20 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: rgba(255, 255, 255, 0.15) !important;
     color: #ffffff !important;
-    border: 2px solid #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-size: 0.72rem;
     font-weight: 600;
     text-decoration: none !important;
     white-space: nowrap;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .member-badge a.member-btn:hover {
-    background: #ffffff !important;
+    background: var(--accent-blue) !important;
     color: #0f172a !important;
+    border-color: var(--accent-blue) !important;
 }
 
 .roster-grid {
@@ -523,7 +539,8 @@ body {
         padding-left: 1rem;
     }
 
-    .dropdown:hover .dropdown-menu {
+    .dropdown:hover .dropdown-menu,
+    .dropdown.open .dropdown-menu {
         display: block;
     }
 

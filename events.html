@@ -90,25 +90,25 @@
 
             <div class="event-card">
                 <div class="event-frame">
-                    <img src="17.jfif" alt="Event 3" class="event-image">
+                    <img src="17.jfif" alt="Event 4" class="event-image">
                 </div>
             </div>
 
             <div class="event-card">
                 <div class="event-frame">
-                    <img src="19.jfif" alt="Event 3" class="event-image">
+                    <img src="19.jfif" alt="Event 5" class="event-image">
                 </div>
             </div>
 
             <div class="event-card">
                 <div class="event-frame">
-                    <img src="20.jfif" alt="Event 3" class="event-image">
+                    <img src="20.jfif" alt="Event 6" class="event-image">
                 </div>
             </div>
 
             <div class="event-card">
                 <div class="event-frame">
-                    <img src="21.jfif" alt="Event 4" class="event-image">
+                    <img src="21.jfif" alt="Event 7" class="event-image">
                 </div>
             </div>
         </div>
@@ -117,11 +117,43 @@
     <script>
         const mobileToggle = document.getElementById('mobile-menu-toggle');
         const navWrapper = document.getElementById('nav-wrapper');
+        
         if (mobileToggle && navWrapper) {
             mobileToggle.addEventListener('click', () => {
                 navWrapper.classList.toggle('active');
+                
+                const icon = mobileToggle.querySelector('i');
+                if (navWrapper.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
             });
         }
+
+        // Mobile Dropdown Tap Handler
+        const dropdownLinks = document.querySelectorAll('.dropdown > a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    const dropdownParent = link.parentElement;
+                    
+                    if (!dropdownParent.classList.contains('open')) {
+                        e.preventDefault();
+                        
+                        document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
+                            if (openDropdown !== dropdownParent) {
+                                openDropdown.classList.remove('open');
+                            }
+                        });
+                        
+                        dropdownParent.classList.add('open');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>

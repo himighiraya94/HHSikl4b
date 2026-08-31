@@ -77,8 +77,6 @@
         </section>
 
         <section id="officers" class="team-section">
-        
-
             <div class="team-grid">
 
                 <div class="member-card">
@@ -137,11 +135,43 @@
     <script>
         const mobileToggle = document.getElementById('mobile-menu-toggle');
         const navWrapper = document.getElementById('nav-wrapper');
+        
         if (mobileToggle && navWrapper) {
             mobileToggle.addEventListener('click', () => {
                 navWrapper.classList.toggle('active');
+                
+                const icon = mobileToggle.querySelector('i');
+                if (navWrapper.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
             });
         }
+
+        // Mobile Dropdown Tap Handler
+        const dropdownLinks = document.querySelectorAll('.dropdown > a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const dropdownParent = link.parentElement;
+                    
+                    if (!dropdownParent.classList.contains('open')) {
+                        e.preventDefault();
+                        
+                        document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
+                            if (openDropdown !== dropdownParent) {
+                                openDropdown.classList.remove('open');
+                            }
+                        });
+                        
+                        dropdownParent.classList.add('open');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
