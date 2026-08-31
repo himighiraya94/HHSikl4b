@@ -25,7 +25,11 @@
                 <img src="HH Logo.png" alt="Himig Hiraya Logo" class="nav-logo-img">
             </a>
 
-            <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-wrapper" id="nav-wrapper">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     
@@ -54,7 +58,7 @@
                     <li><a href="events.html" class="nav-link">Events</a></li>
                     <li><a href="contactus.html" class="nav-link">Contact Us</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </header>
 
@@ -232,5 +236,14 @@
 
     </main>
 
+    <script>
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const navWrapper = document.getElementById('nav-wrapper');
+        if (mobileToggle && navWrapper) {
+            mobileToggle.addEventListener('click', () => {
+                navWrapper.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>

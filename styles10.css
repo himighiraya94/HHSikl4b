@@ -81,7 +81,7 @@ h2, h3,
     width: 100%;
     background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 2px solid #ffffff;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -94,6 +94,95 @@ h2, h3,
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.nav-logo-img {
+    height: 35px;
+    width: auto;
+    display: block;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-icon {
+    font-size: 0.75rem;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    list-style: none;
+    min-width: 200px;
+    padding: 0.5rem 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    z-index: 101;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
 /* --- Main Structure & Layout Container --- */
@@ -169,7 +258,7 @@ h2, h3,
     width: 100%;
     aspect-ratio: 16 / 10;
     border-radius: 20px;
-    background: #1d4ed8; /* Vibrant blue frame background */
+    background: #1d4ed8;
     padding: 10px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -198,15 +287,98 @@ h2, h3,
     text-transform: uppercase;
 }
 
-/* Responsive Grid Rules */
+/* --- Responsive Breakpoint Rules --- */
+@media (max-width: 1200px) {
+    .purpose-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
+    .nav-container {
+        padding: 0.8rem 1.25rem !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+        z-index: 1002;
+    }
+
+    .nav-wrapper {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+
+    .nav-wrapper.active {
+        display: block !important;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+        gap: 1.25rem !important;
+        align-items: flex-start !important;
+        width: 100%;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        border: none;
+        margin-top: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .core-values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem 1.5rem;
     }
+
+    .container {
+        padding: 2rem 1.25rem;
+    }
 }
 
 @media (max-width: 640px) {
+    .purpose-grid,
+    .core-values-grid,
     .services-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -215,27 +387,7 @@ h2, h3,
     .service-title {
         font-size: 1rem;
     }
-}
 
-/* --- Responsive Breakpoint Grid Rules --- */
-@media (max-width: 1200px) {
-    .purpose-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 1024px) {
-    .core-values-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 640px) {
-    .purpose-grid,
-    .core-values-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-    
     .cards-wrapper {
         flex-direction: column;
     }

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Officers - Himig Hiraya</title>
+    <title>Recruitment - Himig Hiraya</title>
     <link rel="icon" type="image/png" href="HH Logo.png">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +14,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles7.css">
     <link rel="stylesheet" href="styles2.css">
 </head>
@@ -25,7 +27,11 @@
                 <img src="HH Logo.png" alt="Himig Hiraya Logo" class="nav-logo-img">
             </a>
 
-            <nav>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-wrapper" id="nav-wrapper">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     
@@ -43,7 +49,7 @@
                             People of Himig Hiraya <i class="fa-solid fa-chevron-down nav-icon"></i>
                         </a>
                         <ul class="dropdown-menu">
-                           <li><a href="people.html">Founding Leadership Council</a></li>
+                            <li><a href="people.html">Founding Leadership Council</a></li>
                             <li><a href="director.html">Functional Leadership Assignments</a></li>
                             <li><a href="executive.html">Executive Officers and Associates</a></li>
                             <li><a href="roster.html">Roster of Members</a></li>
@@ -54,27 +60,39 @@
                     <li><a href="events.html" class="nav-link">Events</a></li>
                     <li><a href="contactus.html" class="nav-link">Contact Us</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </header>
 
     <main class="container">
-    <section class="portal-header center-header">
-        <h1 class="main-title">
-            <span class="title-light">JOIN</span> 
-            <span class="title-bold">HIMIG HIRAYA</span>
-        </h1>
-        <p>Be part of our mission and share your gifts through music, service, and community.</p>
-    </section>
+        <section class="portal-header center-header">
+            <h1 class="main-title">
+                <span class="title-light">JOIN</span> 
+                <span class="title-bold">HIMIG HIRAYA</span>
+            </h1>
+            <p>Be part of our mission and share your gifts through music, service, and community.</p>
+        </section>
 
-    <section class="form-wrapper">
-        <iframe 
-            src="https://docs.google.com/forms/d/e/1FAIpQLSf4kc6AO4ETHMYQKv0rqrYaMZ88VAbzk3XCAEWFYrC6kwf7wg/viewform?usp=header" 
-            class="responsive-iframe" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0">
-            Loading…
-        </iframe>
-    </section>
-</main>
+        <section class="form-wrapper">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSf4kc6AO4ETHMYQKv0rqrYaMZ88VAbzk3XCAEWFYrC6kwf7wg/viewform?usp=header" 
+                class="responsive-iframe" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+                Loading…
+            </iframe>
+        </section>
+    </main>
+
+    <script>
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const navWrapper = document.getElementById('nav-wrapper');
+        if (mobileToggle && navWrapper) {
+            mobileToggle.addEventListener('click', () => {
+                navWrapper.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

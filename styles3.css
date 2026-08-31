@@ -55,10 +55,26 @@ body {
     display: block;
 }
 
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
@@ -68,6 +84,9 @@ body {
     font-weight: 500;
     padding-bottom: 0.25rem;
     transition: color 0.2s ease, border-bottom 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .nav-link:hover,
@@ -229,6 +248,9 @@ body {
     overflow: hidden;
     position: relative;
     background: #1e293b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .photo-placeholder {
@@ -272,7 +294,6 @@ body {
     overflow: hidden;
 }
 
-/* Montserrat Member Title */
 .member-name {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
@@ -286,7 +307,6 @@ body {
     margin: 0;
 }
 
-/* Times New Roman Member Subtext */
 .member-role {
     font-family: 'Times New Roman', Times, serif;
     font-size: 0.82rem;
@@ -295,35 +315,70 @@ body {
     font-style: italic;
 }
 
-/* Contact Button */
-.member-badge a.member-btn {
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(255, 255, 255, 0.15) !important;
-    color: #ffffff !important;
-    border: 1px solid #ffffff !important;
-    padding: 0.45rem 0.9rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-decoration: none !important;
-    white-space: nowrap;
-    transition: all 0.2s ease;
-}
+/* --- Mobile & Responsive Breakpoints --- */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0.8rem 1.25rem !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
 
-.member-badge a.member-btn:hover {
-    background: #ffffff !important;
-    color: #0f172a !important;
-}
+    .mobile-menu-toggle {
+        display: block !important;
+        z-index: 1002;
+    }
 
-/* --- Responsive Breakpoints --- */
-@media (max-width: 900px) {
+    .nav-wrapper {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+
+    .nav-wrapper.active {
+        display: block !important;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+        gap: 1.25rem !important;
+        align-items: flex-start !important;
+        width: 100%;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+    }
+
+    .container {
+        padding: 2rem 1.25rem;
+    }
+
     .portal-header h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        display: none;
+    .member-card {
+        flex: 0 1 100%;
+        max-width: 100%;
     }
 }
