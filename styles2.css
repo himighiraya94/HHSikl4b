@@ -55,6 +55,22 @@ body {
     display: block;
 }
 
+/* Mobile Hamburger Menu Toggle Button */
+.mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -168,7 +184,7 @@ body {
     line-height: 1.1;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 1.25rem;
+    margin-bottom: -5px !important;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -188,12 +204,17 @@ body {
 /* Header Subtext Paragraphs */
 .portal-header p {
     font-family: 'Times New Roman', Times, serif !important;
-    font-style: normal; /* Normal non-italic font */
-    font-size: 1.35rem !important; /* Increased font size */
+    font-style: normal;
+    font-size: 1.35rem !important;
     color: rgba(255, 255, 255, 0.9);
     text-align: center;
     line-height: 1.6;
-    margin-bottom: 0.75rem;
+    margin-top: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+.portal-header .social-bar {
+    margin-top: 0 !important;
 }
 
 /* Tagalog text italicization */
@@ -363,18 +384,6 @@ h2, h3,
     font-weight: 500;
 }
 
-@media (max-width: 1024px) {
-    .core-values-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 640px) {
-    .core-values-grid {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
 /* --- Purpose Grid Layout --- */
 .purpose-card.purpose-container {
     max-width: 1350px;
@@ -413,26 +422,109 @@ h2, h3,
     font-weight: 500;
 }
 
-.portal-header .main-title {
-    margin-bottom: -5px !important;
-}
-
-.portal-header p {
-    margin-top: 0 !important;
-    margin-bottom: 8px !important;
-}
-
-.portal-header .social-bar {
-    margin-top: 0 !important;
-}
-
+/* --- Mobile Responsive Styles --- */
 @media (max-width: 1200px) {
     .purpose-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
+@media (max-width: 1024px) {
+    .core-values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0.8rem 1.25rem !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+        z-index: 1002;
+    }
+
+    .nav-wrapper {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+    }
+
+    .nav-wrapper.active {
+        display: block !important;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.5rem !important;
+        gap: 1.25rem !important;
+        align-items: flex-start !important;
+        width: 100%;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        border: none;
+        margin-top: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .container {
+        padding: 2rem 1.25rem;
+    }
+
+    .portal-header .main-title {
+        font-size: 2.2rem;
+    }
+
+    .portal-header p {
+        font-size: 1.1rem !important;
+    }
+
+    .cards-wrapper {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 640px) {
+    .core-values-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
     .purpose-grid {
         grid-template-columns: repeat(1, 1fr);
     }
