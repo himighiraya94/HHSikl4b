@@ -390,10 +390,11 @@ body {
 
     .mobile-menu-toggle {
         display: block !important;
+        z-index: 1002;
     }
 
     .nav-wrapper {
-        display: none;
+        display: none !important;
         position: absolute;
         top: 100%;
         left: 0;
@@ -402,6 +403,7 @@ body {
         backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        z-index: 1001;
     }
 
     .nav-wrapper.active {
@@ -409,10 +411,22 @@ body {
     }
 
     .nav-menu {
+        display: flex !important;
         flex-direction: column !important;
-        padding: 1.5rem;
-        gap: 1.25rem;
+        padding: 1.5rem !important;
+        gap: 1.25rem !important;
         align-items: flex-start !important;
+        width: 100%;
+        list-style: none;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
     }
 
     .dropdown-menu {
