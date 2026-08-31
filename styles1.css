@@ -440,7 +440,11 @@ body {
     }
 
     .dropdown:hover .dropdown-menu {
-        display: block;
+        display: none;
+    }
+
+    .dropdown.open > .dropdown-menu {
+        display: block !important;
     }
 
     .container {

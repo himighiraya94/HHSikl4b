@@ -185,6 +185,28 @@
                 }
             });
         }
+
+        // Mobile Dropdown Tap Handler
+        const dropdownLinks = document.querySelectorAll('.dropdown > a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    const dropdownParent = link.parentElement;
+                    
+                    if (!dropdownParent.classList.contains('open')) {
+                        e.preventDefault();
+                        
+                        document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
+                            if (openDropdown !== dropdownParent) {
+                                openDropdown.classList.remove('open');
+                            }
+                        });
+                        
+                        dropdownParent.classList.add('open');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
