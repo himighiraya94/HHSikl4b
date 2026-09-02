@@ -136,7 +136,6 @@ h2, h3,
     gap: 0.4rem;
 }
 
-.nav-link:hover,
 .nav-link.active {
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -167,10 +166,6 @@ h2, h3,
     z-index: 101;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 .dropdown-menu li a {
     display: block;
     padding: 0.6rem 1.2rem;
@@ -178,11 +173,6 @@ h2, h3,
     text-decoration: none;
     font-size: 0.85rem;
     transition: background 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent-blue);
 }
 
 /* --- Main Structure & Layout Container --- */
@@ -257,6 +247,25 @@ h2, h3,
     background-color: #ffffff;
 }
 
+/* ==========================================================================
+   Desktop Hover Interactions (@media (hover: hover) and (pointer: fine))
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+    .nav-link:hover {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--accent-blue);
+    }
+}
+
 /* --- Responsive Breakpoint Grid & Navigation Rules --- */
 @media (max-width: 1200px) {
     .purpose-grid {
@@ -328,7 +337,6 @@ h2, h3,
         padding-left: 1rem;
     }
 
-    .dropdown:hover .dropdown-menu,
     .dropdown.open .dropdown-menu {
         display: block;
     }

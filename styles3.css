@@ -89,7 +89,6 @@ body {
     gap: 0.4rem;
 }
 
-.nav-link:hover,
 .nav-link.active {
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -177,11 +176,6 @@ body {
     user-select: none;
 }
 
-.description-dropdown summary:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: #ffffff;
-}
-
 .description-dropdown summary .toggle-icon {
     font-size: 0.75rem;
     transition: transform 0.3s ease;
@@ -228,7 +222,7 @@ body {
     margin: 0 auto;
 }
 
-/* --- Member Card & Interactive Hover Behavior --- */
+/* --- Member Card & Interactive Layout --- */
 .member-card {
     flex: 0 1 calc(33.333% - 2rem);
     min-width: 280px;
@@ -243,12 +237,6 @@ body {
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
                 border-color 0.35s ease, 
                 box-shadow 0.35s ease;
-}
-
-.member-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-blue);
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.2);
 }
 
 .member-photo-frame {
@@ -280,10 +268,6 @@ body {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.member-card:hover .member-photo {
-    transform: scale(1.05);
-}
-
 .member-badge {
     position: absolute;
     bottom: 12px;
@@ -301,11 +285,6 @@ body {
     align-items: center;
     gap: 0.5rem;
     transition: border-color 0.35s ease, background 0.35s ease;
-}
-
-.member-card:hover .member-badge {
-    border-color: rgba(56, 189, 248, 0.6);
-    background: rgba(15, 23, 42, 0.95);
 }
 
 .member-details {
@@ -334,6 +313,36 @@ body {
     color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
     font-style: italic;
+}
+
+/* ==========================================================================
+   Desktop Hover Interactions (@media (hover: hover) and (pointer: fine))
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+    .nav-link:hover {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .description-dropdown summary:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #ffffff;
+    }
+
+    .member-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent-blue);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(56, 189, 248, 0.2);
+    }
+
+    .member-card:hover .member-photo {
+        transform: scale(1.05);
+    }
+
+    .member-card:hover .member-badge {
+        border-color: rgba(56, 189, 248, 0.6);
+        background: rgba(15, 23, 42, 0.95);
+    }
 }
 
 /* --- Mobile & Responsive Breakpoints --- */

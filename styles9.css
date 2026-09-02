@@ -134,7 +134,6 @@ h2, h3,
     gap: 0.4rem;
 }
 
-.nav-link:hover,
 .nav-link.active {
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -165,10 +164,6 @@ h2, h3,
     z-index: 101;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 .dropdown-menu li a {
     display: block;
     padding: 0.6rem 1.2rem;
@@ -176,11 +171,6 @@ h2, h3,
     text-decoration: none;
     font-size: 0.85rem;
     transition: background 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent-blue);
 }
 
 /* --- Main Structure & Layout Container --- */
@@ -285,12 +275,6 @@ h2, h3,
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.event-card:hover .event-frame {
-    border-color: var(--accent-blue);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 18px rgba(56, 189, 248, 0.25);
-    transform: translateY(-6px);
-}
-
 .carousel-slides {
     width: 100%;
     height: 100%;
@@ -310,14 +294,11 @@ h2, h3,
     transition: opacity 0.5s ease-in-out;
 }
 
-
 .carousel-slides .event-image.active {
     opacity: 1;
     z-index: 2;
     pointer-events: auto;
 }
-
-
 
 /* --- Dots Navigation Indicator --- */
 .carousel-dots {
@@ -342,6 +323,70 @@ h2, h3,
 .dot.active {
     background: var(--accent-blue);
     transform: scale(1.25);
+}
+
+.site-footer {
+    width: 100%;
+    background-color: #05080f;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+    z-index: 100;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-logo {
+    height: 18px;
+    width: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Desktop Hover Interactions (@media (hover: hover) and (pointer: fine))
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+    .nav-link:hover {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--accent-blue);
+    }
+
+    .event-card:hover .event-frame {
+        border-color: var(--accent-blue);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 18px rgba(56, 189, 248, 0.25);
+        transform: translateY(-6px);
+    }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 0 1.25rem;
+        font-size: 0.8rem;
+    }
 }
 
 /* --- Responsive Breakpoint Rules --- */
@@ -409,7 +454,6 @@ h2, h3,
         padding-left: 1rem;
     }
 
-    .dropdown:hover .dropdown-menu,
     .dropdown.open .dropdown-menu {
         display: block;
     }

@@ -64,6 +64,7 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     padding: 0.5rem;
+    transition: color 0.2s ease;
 }
 
 .nav-wrapper {
@@ -90,7 +91,6 @@ body {
     gap: 0.4rem;
 }
 
-.nav-link:hover,
 .nav-link.active {
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -121,12 +121,6 @@ body {
     z-index: 200;
 }
 
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 .dropdown-menu li {
     list-style: none;
     margin: 0;
@@ -141,12 +135,7 @@ body {
     font-size: 0.88rem;
     font-weight: 500;
     white-space: nowrap;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent-blue);
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
 }
 
 /* --- Main Container & Layout --- */
@@ -297,13 +286,7 @@ h2, h3,
     padding: 2.5rem 2rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.mv-card:hover,
-.purpose-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(56, 189, 248, 0.4);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .mv-icon {
@@ -323,7 +306,7 @@ h2, h3,
     padding: 2.5rem 2.5rem;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .purpose-list {
@@ -374,6 +357,7 @@ h2, h3,
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cv-box p {
@@ -412,6 +396,7 @@ h2, h3,
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .purpose-box p {
@@ -447,6 +432,7 @@ h2, h3,
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
 .featured-video-wrapper iframe {
@@ -455,15 +441,81 @@ h2, h3,
     border: 0;
 }
 
-/* Mobile responsive adjustments */
-@media (max-width: 768px) {
-    .featured-video-section {
-        margin-top: 2.5rem;
+.site-footer {
+    width: 100%;
+    background-color: #05080f;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+    z-index: 100;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-logo {
+    height: 18px;
+    width: auto;
+    display: inline-block;
+}
+
+/* ==========================================================================
+   Desktop Hover Interactions (@media (hover: hover) and (pointer: fine))
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+    .nav-link:hover {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
     }
-    
-    .video-section-title {
-        font-size: 1.35rem;
-        margin-bottom: 1rem;
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--accent-blue);
+        padding-left: 1.5rem;
+    }
+
+    .mv-card:hover,
+    .purpose-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent-blue);
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 18px rgba(56, 189, 248, 0.25);
+    }
+
+    .cv-box:hover,
+    .purpose-box:hover {
+        background-color: rgba(56, 189, 248, 1);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+        cursor: pointer;
+    }
+
+    .featured-video-wrapper:hover {
+        border-color: var(--accent-blue);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.3);
+        transform: translateY(-4px);
+    }
+
+    .mobile-menu-toggle:hover {
+        color: var(--accent-blue);
     }
 }
 
@@ -481,6 +533,20 @@ h2, h3,
 }
 
 @media (max-width: 768px) {
+    .footer-container {
+        padding: 0 1.25rem;
+        font-size: 0.8rem;
+    }
+
+    .featured-video-section {
+        margin-top: 2.5rem;
+    }
+    
+    .video-section-title {
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+    }
+
     .nav-container {
         padding: 0.8rem 1.25rem !important;
         position: relative !important;

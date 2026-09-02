@@ -136,7 +136,6 @@ h2, h3,
     gap: 0.4rem;
 }
 
-.nav-link:hover,
 .nav-link.active {
     color: #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -167,10 +166,6 @@ h2, h3,
     z-index: 101;
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-}
-
 .dropdown-menu li a {
     display: block;
     padding: 0.6rem 1.2rem;
@@ -178,11 +173,6 @@ h2, h3,
     text-decoration: none;
     font-size: 0.85rem;
     transition: background 0.2s ease, color 0.2s ease;
-}
-
-.dropdown-menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent-blue);
 }
 
 /* --- Main Structure & Layout Container --- */
@@ -268,12 +258,6 @@ h2, h3,
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-frame {
-    border-color: var(--accent-blue);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 18px rgba(56, 189, 248, 0.25);
-    transform: translateY(-6px);
-}
-
 .service-image {
     width: 100%;
     height: 100%;
@@ -281,10 +265,6 @@ h2, h3,
     border-radius: 12px;
     display: block;
     transition: transform 0.4s ease;
-}
-
-.service-card:hover .service-image {
-    transform: scale(1.03);
 }
 
 .service-title {
@@ -298,8 +278,37 @@ h2, h3,
     transition: color 0.3s ease;
 }
 
-.service-card:hover .service-title {
-    color: var(--accent-blue);
+/* ==========================================================================
+   Desktop Hover Interactions (@media (hover: hover) and (pointer: fine))
+   ========================================================================== */
+@media (hover: hover) and (pointer: fine) {
+    .nav-link:hover {
+        color: #ffffff;
+        border-bottom: 2px solid #ffffff;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--accent-blue);
+    }
+
+    .service-card:hover .service-frame {
+        border-color: var(--accent-blue);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6), 0 0 18px rgba(56, 189, 248, 0.25);
+        transform: translateY(-6px);
+    }
+
+    .service-card:hover .service-image {
+        transform: scale(1.03);
+    }
+
+    .service-card:hover .service-title {
+        color: var(--accent-blue);
+    }
 }
 
 /* --- Responsive Breakpoint Rules --- */
@@ -373,7 +382,6 @@ h2, h3,
         padding-left: 1rem;
     }
 
-    .dropdown:hover .dropdown-menu,
     .dropdown.open .dropdown-menu {
         display: block;
     }
