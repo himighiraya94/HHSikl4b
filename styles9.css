@@ -235,11 +235,11 @@ h2, h3,
     margin-top: 2rem;
 }
 
-/* --- Events Section Grid & Framing --- */
+/* --- Events Section Grid & Matched Carousel Framing --- */
 .events-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -251,19 +251,37 @@ h2, h3,
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.event-frame {
+.event-info {
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.event-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.event-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: var(--accent-blue);
+    font-weight: 500;
+}
+
+.event-frame,
+.event-carousel {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    height: 430px;
     border-radius: 16px;
     overflow: hidden;
-    background: rgba(15, 23, 42, 0.75);
-    backdrop-filter: blur(10px);
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #1e293b;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -273,16 +291,57 @@ h2, h3,
     transform: translateY(-6px);
 }
 
-.event-image {
+.carousel-slides {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    display: block;
-    transition: transform 0.4s ease;
+    position: relative;
 }
 
-.event-card:hover .event-image {
-    transform: scale(1.02);
+.carousel-slides .event-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+.carousel-slides .event-image.active {
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+
+
+/* --- Dots Navigation Indicator --- */
+.carousel-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 10;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent-blue);
+    transform: scale(1.25);
 }
 
 /* --- Responsive Breakpoint Rules --- */
@@ -367,7 +426,12 @@ h2, h3,
 @media (max-width: 768px) {
     .events-grid {
         grid-template-columns: 1fr;
-        gap: 1.75rem;
+        gap: 2rem;
+    }
+
+    .event-frame,
+    .event-carousel {
+        height: 280px;
     }
 }
 
