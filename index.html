@@ -115,14 +115,10 @@
                     <div class="carousel-slide">
                         <img src="9.png" alt="Himig Hiraya Event 9">
                     </div>
-                    <div class="carousel-slide">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WW6kouO_xHI?si=cF9Lw5ybEpK2t4mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
                 </div>
 
                 <div class="carousel-dots">
                     <span class="dot active"></span>
-                    <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
@@ -138,10 +134,9 @@
 
     </main>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
 
     <!-- Automatic Image Slider JavaScript -->
-    <!--<script>
+    <script>
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.dot');
         let currentSlide = 0;
@@ -215,118 +210,5 @@
         });
     </script>
 </body>
-</html>-->
-
-<script>
-        const slides = document.querySelectorAll('.carousel-slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        let slideInterval;
-        let ytPlayers = [];
-
-        // Initialize YouTube IFrame API Players
-        function onYouTubeIframeAPIReady() {
-            const iframes = document.querySelectorAll('.carousel-slide iframe');
-            iframes.forEach((iframe, index) => {
-                ytPlayers[index] = new YT.Player(iframe.id, {
-                    events: {
-                        'onStateChange': onPlayerStateChange
-                    }
-                });
-            });
-        }
-
-        // Pause auto-rotation while a video is actively playing
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.PLAYING) {
-                clearInterval(slideInterval);
-            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-                resetSlideInterval();
-            }
-        }
-
-        // Pause all YouTube videos when switching slides
-        function pauseAllVideos() {
-            ytPlayers.forEach(player => {
-                if (player && typeof player.pauseVideo === 'function') {
-                    player.pauseVideo();
-                }
-            });
-        }
-
-        function showSlide(index) {
-            pauseAllVideos();
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        function resetSlideInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
-
-        // Initial setup for auto-slide
-        resetSlideInterval();
-
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-                resetSlideInterval();
-            });
-        });
-    </script>
-
-    <!-- Mobile Navigation Toggle JavaScript -->
-    <script>
-        const menuToggle = document.getElementById('mobile-menu-toggle');
-        const navWrapper = document.getElementById('nav-wrapper');
-
-        if (menuToggle && navWrapper) {
-            menuToggle.addEventListener('click', () => {
-                navWrapper.classList.toggle('active');
-                
-                const icon = menuToggle.querySelector('i');
-                if (navWrapper.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-xmark');
-                } else {
-                    icon.classList.remove('fa-xmark');
-                    icon.classList.add('fa-bars');
-                }
-            });
-        }
-
-        // Mobile Dropdown Tap Handler
-        const dropdownLinks = document.querySelectorAll('.dropdown > a');
-        dropdownLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    const dropdownParent = link.parentElement;
-                    
-                    if (!dropdownParent.classList.contains('open')) {
-                        e.preventDefault();
-                        
-                        document.querySelectorAll('.dropdown.open').forEach(openDropdown => {
-                            if (openDropdown !== dropdownParent) {
-                                openDropdown.classList.remove('open');
-                            }
-                        });
-                        
-                        dropdownParent.classList.add('open');
-                    }
-                }
-            });
-        });
-    </script>
-</body>
 </html>
+
